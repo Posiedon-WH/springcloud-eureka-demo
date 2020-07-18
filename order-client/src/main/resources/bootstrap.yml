@@ -7,6 +7,26 @@ spring:
     loadbalancer:
       retry:
         enabled: true
+    config:
+      label: master
+#      uri: http://localhost:8005
+      discovery:
+#      profile: dev
+        enabled: true
+        service-id: config-server
+    # 刷新配置url  http://localhost:8081/actuator/bus-refresh
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      trace:
+        enabled: true
+
+  rabbitmq:
+    host: 192.168.1.106
+    username: admin
+    password: rbmq6436
+
 
 eureka:
   client:
@@ -34,3 +54,4 @@ hystrix:
         enabled: true
         sleepWindowInMilliseconds: 10
         requestVolumeThreshold: 20
+

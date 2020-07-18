@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Hello world!
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.posiedon.wh")
 @EnableEurekaClient
 //开启断路器功能
 @EnableCircuitBreaker

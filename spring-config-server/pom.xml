@@ -37,10 +37,20 @@
       <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
       <version>2.2.3.RELEASE</version>
     </dependency>
-
+    <!--配置中心-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-config-server</artifactId>
+    </dependency>
+    <!--springcloud-bus 消息总线-->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+    </dependency>
+    <!--监控-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
   </dependencies>
   <dependencyManagement>
@@ -110,7 +120,8 @@
       <resource>
         <directory>src/main/resources</directory>
         <includes>
-          <include>**/*.properties</include>
+<!--          <include>**/*.properties</include>-->
+          <include>**/*.yml</include>
           <include>**/*.xml</include>
           <include>**/*.txt</include>
           <include>**/*.keystore</include>
