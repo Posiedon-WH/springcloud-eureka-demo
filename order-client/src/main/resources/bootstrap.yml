@@ -1,0 +1,36 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: order-client
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+
+eureka:
+  client:
+    security:
+      basic:
+        user: admin
+        password: admin
+    serviceUrl:
+      defaultZone: http://${eureka.client.security.basic.user}:${eureka.client.security.basic.password}@localhost:8700/eureka/
+  ribbon:
+    eureka:
+      enabled: true
+#hystrix.stream  开放所有的监控接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#hystrix
+hystrix:
+  command:
+    order:
+      circuitBreaker:
+        enabled: true
+        sleepWindowInMilliseconds: 10
+        requestVolumeThreshold: 20

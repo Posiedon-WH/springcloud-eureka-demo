@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="store-client" />
+        <module name="spring-config-server" />
+        <module name="spring-eureka-server" />
+        <module name="order-client" />
+        <module name="hystrix-dashboard" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hystrix-dashboard" target="11" />
+      <module name="order-client" target="11" />
+      <module name="spring-config-server" target="11" />
+      <module name="spring-eureka-server" target="11" />
+      <module name="store-client" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

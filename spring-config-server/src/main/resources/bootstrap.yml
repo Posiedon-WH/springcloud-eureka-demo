@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri:
+          username: Posiedon-WH
+          password: githubmm6436
+          search-paths:
+server:
+  port: 8005
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:8700/eureka/
+

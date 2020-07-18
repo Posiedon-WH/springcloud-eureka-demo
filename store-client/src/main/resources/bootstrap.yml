@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: store-client
+server:
+  port: 8001
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin@localhost:8700/eureka/
