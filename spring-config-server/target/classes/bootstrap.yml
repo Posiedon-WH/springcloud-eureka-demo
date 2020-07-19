@@ -34,7 +34,7 @@ eureka:
     serviceUrl:
       defaultZone: http://admin:admin@localhost:8700/eureka/
 
-#hystrix.stream  开放所有的监控接口
+#hystrix.stream  (actuator)开放所有的监控接口
 management:
   endpoints:
     web:

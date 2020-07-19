@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/store-client/pom.xml" />
         <option value="$PROJECT_DIR$/hystrix-dashboard/pom.xml" />
         <option value="$PROJECT_DIR$/spring-config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-zuul/pom.xml" />
       </list>
     </option>
   </component>

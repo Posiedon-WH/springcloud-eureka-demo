@@ -1,0 +1,69 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: zuul-client
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+    config:
+      label: master
+#      uri: http://localhost:8005
+      discovery:
+#      profile: dev
+        enabled: true
+        service-id: config-server
+    # 刷新配置url  http://localhost:8081/actuator/bus-refresh
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+      trace:
+        enabled: true
+
+  rabbitmq:
+    host: 192.168.1.106
+    username: admin
+    password: rbmq6436
+
+
+eureka:
+  client:
+    security:
+      basic:
+        user: admin
+        password: admin
+    serviceUrl:
+      defaultZone: http://${eureka.client.security.basic.user}:${eureka.client.security.basic.password}@localhost:8700/eureka/
+  ribbon:
+    eureka:
+      enabled: true
+#hystrix.stream  开放所有的监控接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+#hystrix
+#hystrix:
+#  command:
+#    order:
+#      circuitBreaker:
+#        enabled: true
+#        sleepWindowInMilliseconds: 10
+#        requestVolumeThreshold: 20
+
+zuul:
+  routes:
+    order-client:
+      path: /web/**
+      serviceId: order-client
+      #针对某个服务传输指定的headers信息 ，默认是过滤掉 Cookie,Set-Cookie,Authorization 这三个信息的
+      #这里置空就是不要过滤掉这三个
+      sensitive-headers:
+        ignored-services: '*'
+  add-host-header: true
+
+
