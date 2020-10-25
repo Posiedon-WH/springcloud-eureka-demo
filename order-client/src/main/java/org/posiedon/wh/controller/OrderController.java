@@ -1,5 +1,6 @@
 package org.posiedon.wh.controller;
 
+import org.posiedon.wh.feign.OrderFeignService;
 import org.posiedon.wh.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,21 @@ import java.util.HashMap;
 public class OrderController {
     @Autowired
     OrderService orderService;
+
+    @Autowired
+    OrderFeignService orderFeignService;
+
+    @RequestMapping("order-feign.do")
+    public ResponseEntity order1(){
+        try {
+            ResponseEntity order = orderFeignService.order();
+            System.out.println("======OrderController========order.do========");
+            return ResponseEntity.ok(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
     @RequestMapping("order.do")
     public ResponseEntity order(){

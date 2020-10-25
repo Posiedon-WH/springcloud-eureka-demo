@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
@@ -17,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableCircuitBreaker
 ////开启重试功能
 //@EnableRetry
+@EnableFeignClients(basePackages = {"org.posiedon.wh.feign"})
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
