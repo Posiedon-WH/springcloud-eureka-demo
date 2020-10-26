@@ -1,9 +1,11 @@
 package org.posiedon.wh.controller;
 
 import org.posiedon.wh.feign.OrderFeignService;
+import org.posiedon.wh.feign.StoreFeignService;
 import org.posiedon.wh.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +22,9 @@ public class OrderController {
 
     @Autowired
     OrderFeignService orderFeignService;
+
+    @Autowired
+    StoreFeignService storeFeignService;
 
     @RequestMapping("order-feign.do")
     public ResponseEntity order1(){
@@ -57,5 +62,10 @@ public class OrderController {
 
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+    }
+
+    @RequestMapping(value = "consume.do/{id}")
+    public ResponseEntity<String> consume(@PathVariable("id") Integer id){
+        return storeFeignService.consume(id);
     }
 }

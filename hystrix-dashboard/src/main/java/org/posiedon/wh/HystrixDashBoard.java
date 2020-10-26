@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
 /*
- * 监控界面：http://localhost:9000/hystrix
+ * 监控界面：http://localhost:9001/hystrix
  * 需要监控的端点（使用了hystrix组件的端点）：http://localhost:8000/actuator/hystrix.stream
  *
  * */
