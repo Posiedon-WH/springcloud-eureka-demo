@@ -1,5 +1,6 @@
 package org.posiedon.wh.feign;
 
+import org.posiedon.wh.feign.dto.Demo2DTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,4 +15,7 @@ public interface StoreFeignService {
 
     @RequestMapping(value = "consume.do",method = RequestMethod.POST)
     ResponseEntity<String> consume(Integer id);
+
+    @RequestMapping(value = "demo.do",method = RequestMethod.POST)
+    Demo2DTO getDemoDTO();
 }
